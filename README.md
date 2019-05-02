@@ -1,3 +1,3 @@
 # saylor.github.io
 
-Sample Dashboard - Charts, Graphs and Maps - https://saylor.github.io/dashboard/
+ <a href="https://saylor.github.io/dashboard/">Sample Dashboard - Charts, Graphs and Maps</a>
