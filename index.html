@@ -1,0 +1,1956 @@
+<html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Relocation</title>
+    <style>
+                    /* simple reset */
+                    html, body, ul, ol, li, form, fieldset, h1, h2, h3, h4, h5, h6, p { margin: 0; font-family:Sans-Serif; font-size:12px;line-height:1.4em;}
+                    fieldset,img { border: 0; }
+                    li { list-style: circle; }
+                    sup { vertical-align: text-top; }
+                    sub { vertical-align: text-bottom; }
+                    table{border-collapse: collapse;border-spacing: 0;}
+                    caption, th, td{text-align: left;vertical-align: top;font-weight: normal;}
+                    input, textarea, select{line-height: 1.1;}
+                    /*Content*/
+                    body {margin:16px; background-color:#f0f0f0; }
+                    h1 {font-weight:normal;color:#156F89;font-size:300%;margin-bottom:0.5em;}
+                    h2 { clear:both;font-weight:normal;color:#000000;font-size:220%;margin-top:1em;margin-bottom:0.5em;}
+                    h3 { clear:both;font-weight:normal;color:#000000;font-size:160%;margin-top:1em;margin-bottom:0.5em;}
+                    a, a:visited {color:#000000;}
+                    .navBar {}
+                    .object { clear:both; background-color:#ffffff; padding:10px;margin-top:10px;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;border:1px solid #e9e9e9;}
+                    .object h3 {margin-top:0px;}
+                    .comment {margin-bottom:1em;}
+                    .attributes {}
+                    .attribute {clear:both;border-top:1px solid #e9e9e9;padding-top:6px;padding-bottom:6px;}
+                    .attributeName {float:left;width:200px;}
+                    .attributeComment {margin-left:220px;}
+                    .footer {margin:0.5em;margin-top:1em;}
+                </style>
+  </head>
+  <body>
+    <h1>Relocation</h1>
+    <div class="navBar">Jump to: 
+                <a href="#Table">Table</a> <a href="#StoredProcedure">StoredProcedure</a> </div>
+    <div class="groups">
+      <div class="group"><a name="Table"></a><h2>Table</h2>
+        <div class="objects">
+          <div class="object">
+            <h3>Relocation.Audit</h3>
+            <div class="comment"><p>The Audit table is used to track changes to the data.  When a major change is made in the relocation process, the original data is stored and the changes are stored.  If the data needs to be reverted the OriginalDataJSON can be used to revert the data.</p>
+</div>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">AuditID</div>
+                <div class="attributeComment">Auto generated ID</div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">MoveID</div>
+                <div class="attributeComment">Foreign Key.  Joins MoveInfo table to identify which Move this Audit record belongs to.</div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">ChangeDate</div>
+                <div class="attributeComment">Date of the Change.</div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">Pernr</div>
+                <div class="attributeComment">Personnel Number of the Employee involved in the Move.</div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">OriginalDataJSON</div>
+                <div class="attributeComment">The data before tany Changes were made.</div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">NewDataJSON</div>
+                <div class="attributeComment">The data after the changes were made.</div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.BenefitReference</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">BenefitID</div>
+                <div class="attributeComment">Auto generated ID</div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">Benefit</div>
+                <div class="attributeComment">Benefit description</div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.Employee</h3>
+            <div class="comment"><p>The Employee table is used to store information about the Employee involved in the move/relocation.</p>
+</div>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">EmployeeID</div>
+                <div class="attributeComment">Employee ID</div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">RecruitmentID</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">Pernr</div>
+                <div class="attributeComment">Personel Number</div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">EmpStatus</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">CellPhone</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">HomePhone</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">WorkPhone</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">EmailAddress</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">StreetAddress</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">City</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">State</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">Zipcode</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">CurrentStoreID</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.ExpenseCategoryReference</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">CategoryID</div>
+                <div class="attributeComment">Auto generated ID</div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">Category</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.ExpenseTypeReference</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">ExpenseTypeID</div>
+                <div class="attributeComment">Auto generated ID</div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">Name</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">CategoryID</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.MoveExpense</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">MoveExpenseID</div>
+                <div class="attributeComment">Auto generated ID</div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">ExpenseTypeID</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">MoveID</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">Amount</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">DocumentFile</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.MoveInfo</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">MoveID</div>
+                <div class="attributeComment">Auto generated ID</div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">StreetAddress</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">City</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">State</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">Zipcode</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">Notes</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">RequestDate</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">ArchivedDate</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">CanceledDate</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">ApprovedDate</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">CompletedDate</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">EmployeeID</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">MoveTypeID</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">UhaulID</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">StorageID</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">TrackingInfoID</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.MoveStatus</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">MoveStatusID</div>
+                <div class="attributeComment">Auto generated ID</div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">EmployeeID</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">MoveID</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">StatusID</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">StoreNumber</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">Title</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">StartDate</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">Department</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">OtherDepartment</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">StoreOps</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">Location</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">Notes</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.MoveTypeReference</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">MoveTypeID</div>
+                <div class="attributeComment">Auto generated ID</div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">Type</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.MovingBenefit</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">MovingBenefitID</div>
+                <div class="attributeComment">Auto generated ID</div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">MoveID</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">BenefitID</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.SecondaryContact</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">SecondaryID</div>
+                <div class="attributeComment">Auto generated ID</div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">EmployeeID</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">FirstName</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">LastName</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">CellPhone</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">HomePhone</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">WorkPhone</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">EmailAddress</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.StatusReference</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">StatusID</div>
+                <div class="attributeComment">Auto generated ID</div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">StatusType</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.StorageInfo</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">StorageID</div>
+                <div class="attributeComment">Auto generated ID</div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">CompanyName</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">ContactName</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">Phone</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">StreetAddress</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">City</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">State</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">Zipcode</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">DriverName</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">Loader</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.TempHousing</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">TempHouseID</div>
+                <div class="attributeComment">Auto generated ID</div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">MoveID</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">StreetAddress</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">State</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">Zipcode</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">ArrivalDate</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">DepartureDate</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">LocationName</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.TrackingInfo</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">TrackingInfoID</div>
+                <div class="attributeComment">Auto generated ID</div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">TrackingID</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">TrackingDate</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">TrackingTime</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">SquareFeet</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">Driver</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">Crew</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">Load</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.TrackingReference</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">TrackingID</div>
+                <div class="attributeComment">Auto generated ID</div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">TrackingType</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.UhaulInfo</h3>
+            <div class="comment"><p>UHaulInfo table stores the ReservationNumber for the UHaul rental agreement. This number is usefull for looking up the rental details on each rental agreement associated with a specific move.</p>
+</div>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">UhaulID</div>
+                <div class="attributeComment">Auto generated ID, Foreign Key in the MoveInfo table.</div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">ReservationNumber</div>
+                <div class="attributeComment">UHaul rental agreement Reservation Number</div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.UhaulRental</h3>
+            <div class="comment"><p>This table connects the UHaulInfo table with the UHaulRentalTypeReference.  One Move may have multiple Rental Agreements (UHaulInfo) and each agreement may contain several different types of rentals  (Trailer, Moving Van, Pickup etc.)</p>
+</div>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">UhaulRentalID</div>
+                <div class="attributeComment">RentalID</div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">UhaulID</div>
+                <div class="attributeComment">UhaulID</div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">UhaulRentalTypeID</div>
+                <div class="attributeComment">RentalTypeID</div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.UhaulRentalTypeReference</h3>
+            <div class="comment"><p>Stores the Type of UHaull rental.  There may be several types associated with a particular Move.  A move may require a 24' Moving Van, a Trailer and a Tow Dolly.</p>
+</div>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">UhaulRentalTypeID</div>
+                <div class="attributeComment">Auto genetated ID</div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">Type</div>
+                <div class="attributeComment">Type of Rental (Trailer, Moving Van, Pickup etc.)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="group"><a name="StoredProcedure"></a><h2>StoredProcedure</h2>
+        <div class="objects">
+          <div class="object">
+            <h3>Relocation.usp_Relocation_Audit_Delete</h3>
+            <div class="comment"><p>SP to delete a specific record from the Audit table.</p>
+</div>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@auditId</div>
+                <div class="attributeComment">ID of record to Delete.</div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_Audit_Insert</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@timestamp</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@pernr</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@moveId</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@originalJSON</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@newJSON</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_Audit_Select_All</h3>
+            <div class="attributes"></div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_Audit_Select_One</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@auditId</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_Audit_Update</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@auditId</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@timestamp</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@pernr</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@originalDataJSON</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@newDataJSON</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_BenefitReference_Delete</h3>
+            <div class="comment"><p>SP to delete a specific record from the BenefitReference table.</p>
+</div>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@benefitId</div>
+                <div class="attributeComment">ID of record to delete</div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_BenefitReference_Insert</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@benefit</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_BenefitReference_Select_All</h3>
+            <div class="attributes"></div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_BenefitReference_Select_One</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@benefitId</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_BenefitReference_Update</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@benefitId</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@benefit</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_Employee_Delete</h3>
+            <div class="comment"><p>SP to delete a specific record from the Employee table.</p>
+</div>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@employeeId</div>
+                <div class="attributeComment">ID of record to delete</div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_Employee_Insert</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@pernr</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@empStatus</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@cellPhone</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@homePhone</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@workPhone</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@emailAddress</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@streetAddress</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@city</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@state</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@zipcode</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_Employee_Select_All</h3>
+            <div class="attributes"></div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_Employee_Select_One</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@employeeId</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_Employee_Update</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@employeeId</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@pernr</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@empStatus</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@cellPhone</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@homePhone</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@workPhone</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@emailAddress</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@streetAddress</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@city</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@state</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@zipcode</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_ExpenseCategoryReference_Delete</h3>
+            <div class="comment"><p>SP to delete a specific record from the ExpenseCategoryReference table.</p>
+</div>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@categoryId</div>
+                <div class="attributeComment">ID of record to delete</div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_ExpenseCategoryReference_Insert</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@category</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_ExpenseCategoryReference_Select_All</h3>
+            <div class="attributes"></div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_ExpenseCategoryReference_Select_One</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@categoryId</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_ExpenseCategoryReference_Update</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@categoryId</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@category</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_ExpenseTypeReference_Delete</h3>
+            <div class="comment"><p>SP to delete a specific record from the ExpenseType Reference table.</p>
+</div>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@expenseTypeId</div>
+                <div class="attributeComment">ID of record to delete</div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_ExpenseTypeReference_Insert</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@name</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@categoryID</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_ExpenseTypeReference_Select_All</h3>
+            <div class="attributes"></div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_ExpenseTypeReference_Select_One</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@expenseTypeId</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_ExpenseTypeReference_Update</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@expenseTypeId</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@name</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@categoryId</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_Get_Recruitment_Employee</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@firstName</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@lastName</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_MoveExpense_Delete</h3>
+            <div class="comment"><p>SP to delete a specific record from the MoveExpense table.</p>
+</div>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@moveExpenseId</div>
+                <div class="attributeComment">ID of record to delete</div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_MoveExpense_Insert</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@amount</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@documentFile</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_MoveExpense_Select_All</h3>
+            <div class="attributes"></div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_MoveExpense_Select_One</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@moveExpenseId</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_MoveExpense_Update</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@moveExpenseId</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@amount</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@documentFile</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_MoveInfo_Delete</h3>
+            <div class="comment"><p>SP to delete a specific record from the MoveInfo table.</p>
+</div>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@moveId</div>
+                <div class="attributeComment">ID of record to delete</div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_MoveInfo_Insert</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@streetAddress</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@city</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@state</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@zipcode</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@notes</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@requestDate</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@archivedDate</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@canceledDate</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@approvedDate</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@completedDate</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_MoveInfo_Select_All</h3>
+            <div class="attributes"></div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_MoveInfo_Select_One</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@moveId</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_MoveInfo_Update</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@moveId</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@streetAddress</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@city</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@state</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@zipcode</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@notes</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@requestDate</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@archivedDate</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@canceledDate</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@approvedDate</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@completedDate</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_MoveStatus_Delete</h3>
+            <div class="comment"><p>SP to delete a specific record from the MoveStatus table.</p>
+</div>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@moveStatusId</div>
+                <div class="attributeComment">ID of Record to delete</div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_MoveStatus_Insert</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@moveID</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@statusID</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@storeNumber</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@title</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@startDate</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@department</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@otherDepartment</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@storeOps</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@location</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@notes</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_MoveStatus_Select_All</h3>
+            <div class="attributes"></div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_MoveStatus_Select_One</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@moveStatusId</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_MoveStatus_Update</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@moveStatusID</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@moveID</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@statusID</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@storeNumber</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@title</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@startDate</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@department</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@otherDepartment</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@storeOps</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@location</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@notes</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_MoveTypeReference_Delete</h3>
+            <div class="comment"><p>SP to delete a specific record from the MoveTypeRefernce table.</p>
+</div>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@moveTypeId</div>
+                <div class="attributeComment">ID of record to delete</div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_MoveTypeReference_Insert</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@type</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_MoveTypeReference_Select_All</h3>
+            <div class="attributes"></div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_MoveTypeReference_Select_One</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@moveTypeId</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_MoveTypeReference_Update</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@moveTypeID</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@type</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_MovingBenefit_Delete</h3>
+            <div class="comment"><p>SP to delete a specific record from the MovingBenefit table.</p>
+</div>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@moveingBenefitId</div>
+                <div class="attributeComment">ID of record to delete</div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_MovingBenefit_Insert</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@moveID</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@benefitID</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_MovingBenefit_Select_All</h3>
+            <div class="attributes"></div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_MovingBenefit_Select_One</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@moveingBenefitId</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_MovingBenefit_Update</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@movingBenefitID</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@moveID</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@benefitID</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_SecondaryContact_Delete</h3>
+            <div class="comment"><p>SP to delete a specific record from the SecondaryContact table.</p>
+</div>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@secondaryId</div>
+                <div class="attributeComment">ID of record to delete</div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_SecondaryContact_Insert</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@firstName</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@lastName</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@cellPhone</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@homePhone</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@workPhone</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@emailAddress</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_SecondaryContact_Select_All</h3>
+            <div class="attributes"></div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_SecondaryContact_Select_One</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@secondaryId</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_SecondaryContact_Update</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@secondaryId</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@firstName</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@lastName</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@cellPhone</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@homePhone</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@workPhone</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@emailAddress</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_StatusReference_Delete</h3>
+            <div class="comment"><p>SP to delete a specific record from the StatusReference table.</p>
+</div>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@statusId</div>
+                <div class="attributeComment">ID of record to delete</div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_StatusReference_Insert</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@statusType</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_StatusReference_Select_All</h3>
+            <div class="attributes"></div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_StatusReference_Select_One</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@statusId</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_StatusReference_Update</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@statusId</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@statusType</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_StorageInfo_Delete</h3>
+            <div class="comment"><p>SP to delete a specific record from the StorageInfo table.</p>
+</div>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@storageId</div>
+                <div class="attributeComment">ID of record to delete</div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_StorageInfo_Insert</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@companyName</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@contactName</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@phone</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@streetAddress</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@city</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@state</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@zipcode</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@driverName</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@loader</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_StorageInfo_Select_All</h3>
+            <div class="attributes"></div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_StorageInfo_Select_One</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@storageId</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_StorageInfo_Update</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@storageId</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@companyName</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@contactName</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@phone</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@streetAddress</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@city</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@state</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@zipcode</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@driverName</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@loader</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_TempHousing_Delete</h3>
+            <div class="comment"><p>SP to delete a specific record from the TempHousing table.</p>
+</div>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@tempHouseId</div>
+                <div class="attributeComment">ID of record to delete</div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_TempHousing_Insert</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@streetAddress</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@state</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@zipcode</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@arrivalDate</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@departureDate</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@locationName</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_TempHousing_Select_All</h3>
+            <div class="attributes"></div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_TempHousing_Select_One</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@tempHouseId</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_TempHousing_Update</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@tempHouseId</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@streetAddress</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@state</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@zipcode</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@arrivalDate</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@departureDate</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@locationName</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_TrackingInfo_Delete</h3>
+            <div class="comment"><p>SP to delete a specific record from the TrackingInfo table.</p>
+</div>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@trackingInfoId</div>
+                <div class="attributeComment">ID of Record to delete</div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_TrackingInfo_Insert</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@trackingInfoId</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@trackingId</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@trackingDate</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@trackingTime</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@squareFeet</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@driver</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@crew</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@load</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_TrackingInfo_Select_All</h3>
+            <div class="attributes"></div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_TrackingInfo_Select_One</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@trackingInfoId</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_TrackingInfo_Update</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@trackingInfoId</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@trackingId</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@trackingDate</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@trackingTime</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@squareFeet</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@driver</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@crew</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@load</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_TrackingReference_Delete</h3>
+            <div class="comment"><p>SP to delete a specific record from the TrackingReference table.</p>
+</div>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@trackingId</div>
+                <div class="attributeComment">ID of record to delete</div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_TrackingReference_Insert</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@trackingType</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_TrackingReference_Select_All</h3>
+            <div class="attributes"></div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_TrackingReference_Select_One</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@trackingId</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_TrackingReference_Update</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@trackingId</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@trackingType</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_UhaulInfo_Delete</h3>
+            <div class="comment"><p>SP to delete a specific record from the UHaulInfo table.</p>
+</div>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@uhaulId</div>
+                <div class="attributeComment">ID of record to delete</div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_UhaulInfo_Insert</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@reservationNumber</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_UhaulInfo_Select_All</h3>
+            <div class="attributes"></div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_UhaulInfo_Select_One</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@uhaulId</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_UhaulInfo_Update</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@uhaulId</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@reservationNumber</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_UhaulRental_Delete</h3>
+            <div class="comment"><p>SP to delete a specific record from the UHaulRental table.</p>
+</div>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@uhaulRentalId</div>
+                <div class="attributeComment">ID of record to delete</div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_UhaulRental_Insert</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@uhaulRentalId</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@uhaulId</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@uhaulRentalTypeId</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_UhaulRental_Select_All</h3>
+            <div class="attributes"></div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_UhaulRental_Select_One</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@uhaulRentalId</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_UhaulRental_Update</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@uhaulRentalId</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@uhaulId</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@uhaulRentalTypeId</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_UhaulRentalTypeReference_Delete</h3>
+            <div class="comment"><p>SP to delete a specific record from the UHaulRentalTypeReference table.</p>
+</div>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@uhaulRentalTypeId</div>
+                <div class="attributeComment">ID of record to delete</div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_UhaulRentalTypeReference_Insert</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@uhaulRentalTypeId</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@type</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_UhaulRentalTypeReference_Select_All</h3>
+            <div class="attributes"></div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_UhaulRentalTypeReference_Select_One</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@uhaulRentalTypeId</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+          <div class="object">
+            <h3>Relocation.usp_Relocation_UhaulRentalTypeReference_Update</h3>
+            <div class="attributes">
+              <div class="attribute">
+                <div class="attributeName">@uhaulRentalTypeId</div>
+                <div class="attributeComment"></div>
+              </div>
+              <div class="attribute">
+                <div class="attributeName">@type</div>
+                <div class="attributeComment"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">Generated by Database Note Taker</div>
+  </body>
+</html>
